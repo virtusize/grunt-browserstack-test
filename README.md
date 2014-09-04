@@ -43,6 +43,9 @@ grunt.initConfig({
     }
   }
 });
+
+// Load plugins
+grunt.loadNpmTasks('grunt-browserstack-test');
 ```
 
 ### Options
@@ -65,6 +68,14 @@ An array of browsers to run test in (capabilities in Browserstack lingo). To get
 ```sh
 curl -u "<username>:<api key>" https://www.browserstack.com/automate/browsers.json
 ```
+## package.json
+Since this plugin is not published to the official npm repository it must be loaded straight from git (version/branch after the # is optional):
+```js
+"devDependencies": {
+  "browserstack-test": "git+ssh://git@github.com:virtusize/grunt-browserstack-test.git#develop"
+}
+```
+
 ## TapReporter
 The browserstack-test plugin that is used expects test results in Tap format. To send the results in Tap format from Browserstack back to the plugin there is a tap_reporter.js included in the lib folder. It is a modified version of the Jasmine Tap Reporter. It is used like any other reporter in Jasmine (2.0):
 ```js
