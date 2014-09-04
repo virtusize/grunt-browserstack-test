@@ -1,0 +1,39 @@
+{
+    "name": "grunt-browserstack-test",
+    "description": "Grunt plugin for running browserstack tests",
+    "version": "0.1.0",
+    "homepage": "https://github.com/virtusize/grunt-browserstack-test/",
+    "author": {
+        "name": "Björn Ekengren",
+        "email": "bjorn@virtusize.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/virtusize/grunt-browserstack-test.git"
+    },
+    "bugs": {
+        "url": "https://github.com/virtusize/grunt-browserstack-test/issues"
+    },
+    "licenses": [
+        {
+            "type": "BSD-3",
+            "url": "https://github.com/virtusize/grunt-browserstack-test/blob/master/LICENSE"
+        }
+    ],
+    "engines": {
+        "node": ">= 0.8.0"
+    },
+    "scripts": {
+        "test": "grunt test"
+    },
+    "devDependencies": {
+        "browserstack-test": "0.2.10",
+        "grunt": "~0.4.5"
+    },
+    "peerDependencies": {
+        "grunt": "~0.4.5"
+    },
+    "keywords": [
+        "gruntplugin browserstack jasmine"
+    ]
+}
