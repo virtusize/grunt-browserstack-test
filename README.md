@@ -28,7 +28,7 @@ grunt.initConfig({
   "grunt-browserstack-test": {
     browserstack: {
       username: "JoeDoe",
-      apiKey: "k3j4h534kljh534k",
+      apikey: "k3j4h534kljh534k",
       url: "http://localhost:8000/test/spec-runner.html",
       timeout: 30,
       browsers: [
@@ -53,7 +53,7 @@ grunt.loadNpmTasks('grunt-browserstack-test');
 #### username
 Your Browserstack username.
 
-#### apiKey
+#### apikey
 Your Browserstack API key.
 
 #### url

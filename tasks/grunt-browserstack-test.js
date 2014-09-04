@@ -1,9 +1,9 @@
 /*
- * grunt-vs-test-runner
- * https://github.com/bjorn/vs-test-runner
+ * grunt-browserstack-test
+ * https://github.com/virtusize/grunt-browserstack-test
  *
- * Copyright (c) 2014 Bjorn Ekengren
- * Licensed under the MIT license.
+ * Copyright (c) 2014 Virtusize
+ * Licensed under the BSD-3 license.
  */
 
 'use strict';
@@ -25,8 +25,8 @@ module.exports = function (grunt) {
             grunt.log.error('No username defined');
             grunt.exit(3);
         }
-        if (!this.data.apiKey) {
-            grunt.log.error('No apiKey defined');
+        if (!this.data.apikey) {
+            grunt.log.error('No apikey defined');
             grunt.exit(3);
         }
         if (!this.data.url) {
@@ -43,7 +43,7 @@ module.exports = function (grunt) {
             this.data.timeout = 30;
         }
 
-        var client = new BrowserStackTest(this.data.username, this.data.apiKey, this.data.apiKey);
+        var client = new BrowserStackTest(this.data.username, this.data.apikey, this.data.apikey);
 
         client.createTest(this.data.url, { timeout: this.data.timeout }, function (err, test) {
             if (err) {
