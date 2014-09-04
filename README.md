@@ -25,70 +25,59 @@ In your project's Gruntfile, add a section named `grunt-browserstack-test` to th
 
 ```js
 grunt.initConfig({
-  grunt-browserstack-test: {
-    options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
-  },
+  "grunt-browserstack-test": {
+    browserstack: {
+      username: "JoeDoe",
+      apiKey: "k3j4h534kljh534k",
+      url: "http://localhost:8000/test/spec-runner.html",
+      timeout: 30,
+      browsers: [
+        {
+          "browser": "safari",
+          "device": null,
+          "browser_version": "6.1",
+          "os": "OS X",
+          "os_version": "Mountain Lion"
+        }
+      ]
+    }
+  }
 });
 ```
 
 ### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
+#### username
+Your Browserstack username.
 
-A string value that is used to do something with whatever.
+#### apiKey
+Your Browserstack API key.
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
+#### url
+Url of the page containing your tests.
 
-A string value that is used to do something else with whatever else.
+#### timeout
+Browserstack inactivity timeout in seconds (optional). Default value is 30.
 
-### Usage Examples
+#### browsers
+An array of browsers to run test in (capabilities in Browserstack lingo). To get a full list of available browsers run:
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
-```js
-grunt.initConfig({
-  grunt-browserstack-test: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
+```sh
+curl -u "<username>:<api key>" https://www.browserstack.com/automate/browsers.json
 ```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
+## TapReporter
+The browserstack-test plugin that is used expects test results in Tap format. To send the results in Tap format from Browserstack back to the plugin there is a tap_reporter.js included in the lib folder. It is a modified version of the Jasmine Tap Reporter. It is used like any other reporter in Jasmine (2.0):
 ```js
-grunt.initConfig({
-  grunt-browserstack-test: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
+jasmine.getEnv().addReporter(new jasmineReporters.TapReporter());
 ```
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
+
+**0.1.0** Initial release
 
 ## License
 
-BrowserStack Test is licensed under the three clause BSD license. Copyright 2013 Bram Stein, all rights reserved.
+grunt-browserbtack-test is licensed under the three clause BSD license. Copyright 2013 Bram Stein, all rights reserved.
