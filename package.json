@@ -26,8 +26,8 @@
     "scripts": {
         "test": "grunt test"
     },
-    "devDependencies": {
-        "browserstack-test": "0.2.10",
+    "dependencies": {
+        "browserstack-test": "git+ssh://git@github.com:virtusize/browserstack-test.git",
         "grunt": "~0.4.5"
     },
     "peerDependencies": {
