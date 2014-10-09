@@ -54,8 +54,10 @@ module.exports = function (grunt) {
                     test.addBrowser(browser);
                 });
                 test.run();
-                // Cannot run done() since test.run is asyncronous.
-            }
+
+                test.job.on("complete", function () {
+                    done();
+                });            }
         });
 
 
